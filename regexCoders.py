@@ -9,7 +9,7 @@ def captureData(url):
     except Exception as e:
         return None
 
-print(captureData("https://github.com/elastic/examples/raw/refs/heads/master/Common%20Data%20Formats/apache_logs/apache_logs"))
+print(captureData("https://raw.githubusercontent.com/elastic/examples/refs/heads/master/Common%20Data%20Formats/apache_logs/apache_logs"))
 
 
 
