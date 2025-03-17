@@ -3,7 +3,7 @@ import requests, json, re
 def captureData(url):
     try:
         respuesta = requests.get(url).json()
-        regexExpresion = "^(\d{3}\.\d{3}\.\d{3}\.\d{3}).*?\"\s(\d{3}).*?$"
+        regexExpresion = "^(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}).*?\"\s(\d{3}).*?$"
         regex = re.findall(respuesta, regexExpresion)
         return regex
     except Exception as e:
