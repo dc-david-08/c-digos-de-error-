@@ -20,7 +20,7 @@ def apiRequestData(data):
     for ip, code in data:
         print(f"{ip}: {code}")  # Muestra IP y código HTTP
         try:
-            response = requests.get(f"{URI}{ip}").json()  # Consulta API con la IP
+            response = requests.get(f"{URI}{ip}").json()  # Consulta API con la IP by ip
             print(f"Ubicación de {ip}: {response.get('country')}, {response.get('city')}")
         except Exception as e:
             print(f"Error consultando API para {ip}: {e}")
