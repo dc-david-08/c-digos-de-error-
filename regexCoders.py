@@ -35,15 +35,8 @@ def apiRequestData(data):
             formatData["country"] = response.get("country")
             formatData["city"] = response.get("city")
         except Exception as e:
-            print(f"Error consultando API para {ip}: {e}")
             formatData["country"] = None
             formatData["city"] = None
 
         JsonData.append(formatData)
-
-    # Imprime resultado final
-    print("Datos recopilados:")
-    for item in JsonData:
-        print(item)
-
     return JsonData
