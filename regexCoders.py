@@ -48,6 +48,6 @@ def apiRequestData(data):
 
     return JsonData
 
-# Ejecutar funciones
+# Ejecutar funciones de captura
 resultado = captureData("https://raw.githubusercontent.com/elastic/examples/refs/heads/master/Common%20Data%20Formats/apache_logs/apache_logs")
 apiRequestData(resultado)
