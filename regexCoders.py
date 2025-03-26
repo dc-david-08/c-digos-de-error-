@@ -1,6 +1,8 @@
-import requests
-import re
+#Librerias utilizadas
+import requests,re
 
+#Función para la captura de datos, y la extración de estructuras de datos con base en
+#expresiones regulares
 def captureData(url):
     try:
         respuesta = requests.get(url).text
@@ -11,6 +13,7 @@ def captureData(url):
         print(f"Error capturando datos: {e}")
         return None
 
+#Función para encontrar el pais y la ciudad desde donde se realizó la conexión
 def apiRequestData(data):
     JsonData = []
     if not data:
