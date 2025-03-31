@@ -6,7 +6,7 @@ import requests,re
 def captureData(url):
     try:
         respuesta = requests.get(url).text
-        regexExpresion = r"^(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}).*?\"\s(\d{3})"
+        regexExpresion = r"^(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}).*?\b[A-Z]{3,7}\b\s(\/\S+).*?(\d{3})"
         regex = re.findall(regexExpresion, respuesta, re.MULTILINE)
         return regex
     except Exception as e:
@@ -23,12 +23,12 @@ def apiRequestData(data):
     URI = "http://ip-api.com/json/"
     ip_seen = set()
 
-    for ip, code in data:
+    for ip, path, code in data:
         if ip in ip_seen:
             continue  # Ya procesada
 
         ip_seen.add(ip)
-        formatData = {"ip": ip, "code": code}
+        formatData = {"ip": ip, "code": code, 'path':path}
 
         try:
             response = requests.get(f"{URI}{ip}").json()
